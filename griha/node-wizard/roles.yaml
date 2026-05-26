@@ -1,0 +1,56 @@
+coordinator:
+  min_ram_gb: 2
+  requires: []
+  preferred: []
+  note: "Routing, registry, egress gate only. No LLM. Best on lowest-spec Pi."
+  max_instances: 1
+
+home_manager:
+  min_ram_gb: 4
+  requires:
+    - [zigbee, zwave, zigbee_zwave]
+  preferred:
+    - ram_8gb
+  note: "HA bridge. Requires Zigbee or Z-Wave dongle."
+  max_instances: 1
+
+home_planner:
+  min_ram_gb: 4
+  requires: []
+  preferred:
+    - ram_8gb
+  note: "Calendar, tasks, routines. Pure software role."
+  max_instances: 1
+
+grocery_agent:
+  min_ram_gb: 2
+  requires: []
+  preferred: []
+  note: "Shopping lists, budget tracking. Lightweight."
+  max_instances: 1
+
+voice_interface:
+  min_ram_gb: 4
+  requires:
+    - microphone
+  preferred:
+    - ram_8gb
+  note: "Wake word, STT, TTS. Requires USB mic or ReSpeaker HAT."
+  max_instances: -1
+
+security_agent:
+  min_ram_gb: 4
+  requires:
+    - camera
+  preferred:
+    - hailo_present
+    - ram_8gb
+  note: "ALL actions are HIGH RISK. HITL mandatory. Cannot auto-execute."
+  max_instances: -1
+
+ingest_worker:
+  min_ram_gb: 2
+  requires: []
+  preferred: []
+  note: "Isolation Forest, sensor ingestion, market data. Runs lean."
+  max_instances: -1

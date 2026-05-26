@@ -1,0 +1,30 @@
+role: home_manager
+version: "0.1.0"
+
+node:
+  node_id: pi-home-manager-01
+  nats_url: nats://10.99.0.1:4222
+
+llm:
+  model: ollama/qwen2.5:3b
+  base_url: http://localhost:11434
+  max_tokens: 512
+  temperature: 0.1
+
+home_assistant:
+  base_url: http://homeassistant.local:8123
+  token: ""  # HA long-lived access token
+
+allowed_actions:
+  - light_control
+  - switch_control
+  - media_control
+  - fan_control
+  - thermostat_control
+  - cover_control
+  # lock_control: NOT listed — hardcoded HIGH RISK in egress gate
+  # alarm_control: NOT listed — hardcoded HIGH RISK in egress gate
+
+ollama_env:
+  OLLAMA_MAX_LOADED_MODELS: "1"
+  OLLAMA_KEEP_ALIVE: "0"

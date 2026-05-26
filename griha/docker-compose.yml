@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  nats:
+    image: nats:alpine
+    container_name: hf-nats
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    command: >
+      -js --cluster_name home-framework --http_port 8222
+    restart: unless-stopped
+    networks:
+      - hf-internal
+
+  coordinator:
+    build:
+      context: .
+      dockerfile: coordinator/Dockerfile
+    container_name: hf-coordinator
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+      - NODE_REGISTRY_PATH=/data/registry.json
+      - LOG_LEVEL=INFO
+    volumes:
+      - coordinator_data:/data
+    restart: unless-stopped
+    networks:
+      - hf-internal
+
+  rest_adapter:
+    build:
+      context: .
+      dockerfile: adapters/Dockerfile
+    container_name: hf-rest
+    depends_on:
+      - coordinator
+    environment:
+      - NATS_URL=nats://nats:4222
+      - REST_PORT=8080
+      - API_KEY=${REST_API_KEY:-changeme}
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - hf-internal
+
+networks:
+  hf-internal:
+    driver: bridge
+
+volumes:
+  coordinator_data:
