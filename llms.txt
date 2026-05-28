@@ -8,7 +8,7 @@ License: Apache 2.0. Status: Proof of concept.
 
 ## Core
 
-- [docs/architecture.md](https://github.com/kannanokannan/Griha/blob/main/docs/architecture.md): Architecture, failure narrative, and inheritance from the three governance projects
+- [docs/architecture.md](https://github.com/kannanokannan/Griha/blob/main/docs/architecture.md): Architecture, failure narrative, governance inheritance
 - [core/intent.py](https://github.com/kannanokannan/Griha/blob/main/core/intent.py): LLM intent extraction — narrate layer only
 - [coordinator/main.py](https://github.com/kannanokannan/Griha/blob/main/coordinator/main.py): Deterministic validation and routing — compute layer
 - [coordinator/egress.py](https://github.com/kannanokannan/Griha/blob/main/coordinator/egress.py): Egress control — ContextBoundary integration point
