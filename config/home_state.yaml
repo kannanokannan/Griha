@@ -1,7 +1,7 @@
 # Griha home state — edit this to reflect current home context
 # State sets risk level, not the LLM
 
-anyone_home: false
-mode: away           # home | away | night | guest
+anyone_home: true
+mode: home           # home | away | night | guest
 time_of_day: day     # morning | day | evening | night
-last_updated: "2026-05-30T00:00:00"
+last_updated: "2026-05-30T12:00:00"
