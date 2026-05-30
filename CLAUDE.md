@@ -58,6 +58,14 @@ Single-topic commits. Verify `git remote -v` shows Griha before every session.
 
 ---
 
+## Google Drive Mirror
+
+Canonical Drive folder: `1Rb2FzDxUg0N6hnns34R0KFt-Hf-aLYg4`
+
+When files are created or modified, upload the updated file to this folder (mirroring the repo structure). Do NOT upload to any other Drive location.
+
+---
+
 *Griha · Apache 2.0 · Inherits: ContextOps · ContextBoundary · Sthala*
 
 ---
