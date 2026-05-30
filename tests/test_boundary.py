@@ -167,11 +167,11 @@ async def test_token_replay_denied():
     assert decision.allowed
     token = decision.token
 
-    # First use — valid
+    # First use — consumes the nonce
     valid, reason = token.is_valid(state_hash)
-    assert not valid  # nonce already marked used during evaluate()
+    assert valid
 
-    # Explicit replay attempt
+    # Replay attempt — nonce already used
     valid2, reason2 = token.is_valid(state_hash)
     assert not valid2
     assert "used" in reason2 or "expired" in reason2
