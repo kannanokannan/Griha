@@ -14,6 +14,11 @@ OLLAMA_ENV_DEFAULTS = {
     "OLLAMA_KEEP_ALIVE":        "0",
 }
 
+# Apply Ollama runtime defaults — setdefault respects env vars already set
+import os as _os
+for _k, _v in OLLAMA_ENV_DEFAULTS.items():
+    _os.environ.setdefault(_k, _v)
+
 
 class LLMAdapter:
 
