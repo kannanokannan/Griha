@@ -55,3 +55,6 @@ class RESTAdapter(BaseAdapter):
 
     async def send_notification(self, message: str):
         logger.info(f"[REST — fallback log]: {message}")
+
+
+app = RESTAdapter().app
