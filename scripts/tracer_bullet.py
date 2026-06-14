@@ -1,11 +1,11 @@
 """
 scripts/tracer_bullet.py — Griha tracer bullet demo
 
-Fires "let the dog walker in" through all four governance layers:
-  1. Sthala    — local LLM extracts intent (narrate only)
+Fires "let the dog walker in" through deterministic workflow controls:
+  1. Sthala    — LLM extracts intent (narrate only)
   2. ContextOps — load home state, compute risk
   3. ContextBoundary — gate on blast radius, fire HITL
-  4. Execution — deterministic mock actuation
+  4. Adapter execution — deterministic mock actuation
 
 Run with:
     python scripts/tracer_bullet.py
@@ -173,7 +173,7 @@ async def execute_action(action: str, target: str, token: ApprovalToken, state: 
     TOCTOU check: recompute state hash before executing.
     If state changed since approval — deny.
     """
-    logger.info("STEP 4 — Execution layer (deterministic)")
+    logger.info("STEP 4 — Adapter execution (deterministic)")
 
     # TOCTOU check — recompute state hash immediately before execute
     _, current_hash = get_state_snapshot()

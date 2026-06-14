@@ -17,5 +17,5 @@ License: Apache 2.0. Status: Proof of concept.
 
 - [ContextOps](https://github.com/kannanokannan/ContextOps): AI context governance framework
 - [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Egress governance specification
-- [Sthala](https://github.com/kannanokannan/Sthala): On-prem AI reference framework
+- [Sthala](https://github.com/kannanokannan/Sthala): Runtime placement and governed implementation under ContextBoundary
 - [context-stack](https://github.com/kannanokannan/context-stack): Canonical terminology and decisions

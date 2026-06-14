@@ -1,8 +1,8 @@
 # Griha
 
-**The only local AI for Home Assistant that won't accidentally unlock your front door.**
+**A governed Home Assistant proof-of-concept that won't accidentally unlock your front door.**
 
-Most "local AI" smart home setups hand an LLM direct access to your devices and hope for the best. Griha doesn't. The LLM extracts intent. Python verifies it. Code executes it. Always.
+Most AI-assisted smart home setups hand an LLM direct access to your devices and hope for the best. Griha doesn't. The LLM extracts intent. Deterministic Python verifies policy and state. Adapters execute approved actions. Always.
 
 No hallucination reaches a physical actuator. Ever.
 
@@ -18,7 +18,7 @@ Full doctrine: https://github.com/kannanokannan/context-stack
 
 ## Why This Exists
 
-Every current local AI + Home Assistant setup has the same flaw: the LLM calls the API directly. That means a misread prompt, a bad day for your model, or a crafted sensor payload can turn on your heater, unlock your door, or trigger your alarm.
+Every AI-assisted Home Assistant setup has the same core failure mode when left ungoverned: the LLM can call the API directly. That means a misread prompt, a bad day for your model, or a crafted sensor payload can turn on your heater, unlock your door, or trigger your alarm.
 
 Griha separates the two jobs that should never be merged:
 
@@ -92,13 +92,7 @@ Single-node mode (coordinator + agent on one Pi) works for getting started.
 
 ## Status
 
-| Version | Focus | Status |
-|---|---|---|
-| v0.1.0 | Foundation — pipeline, egress gate, node wizard | ✅ Done |
-| v0.2 | Security — WireGuard provisioning, mTLS CA, Telegram adapter | 🔨 Next |
-| v0.3 | Planner agent, Google Calendar, cross-agent data passing | Planned |
-| v0.4 | Web UI for wizard, one-shot install scripts, health dashboard | Planned |
-| v0.5 | Grocery agent, security agent, voice adapter stub | Planned |
+Proof of concept. The current repo demonstrates the foundation: pipeline, egress gate, node wizard, Home Assistant bridge, and blast-radius-aware approval flow.
 
 ---
 
@@ -108,4 +102,4 @@ Python · NATS · LiteLLM · Pydantic · FastAPI · Home Assistant · WireGuard 
 
 ---
 
-> **Note:** Griha is the first working prototype of a broader set of ideas — a pipeline discipline where LLMs narrate and code executes, an egress contract that governs what leaves a trust boundary, and a governance layer that sits above it all. These concepts are being formalised into a wider ecosystem (ContextBoundary, ContextOps) for enterprise and SMB contexts. Griha is where they were proven to work on $80 hardware.
+> **Note:** Griha is a product/workflow proof-of-concept for Context Stack principles: ContextOps context lifecycle, ContextBoundary egress control, and Sthala's narrate/compute split. It demonstrates deterministic boundaries in a concrete home workflow; canonical stack doctrine lives in the Context Stack repos.

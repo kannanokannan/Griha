@@ -43,7 +43,7 @@ class RESTAdapter(BaseAdapter):
             except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
         @app.get("/status")
-        async def status(): return {"status": "ok", "nodes": []}  # TODO: query coordinator registry
+        async def status(): return {"status": "ok", "nodes": []}  # Coordinator registry integration is deferred.
 
     async def start(self):
         await self.connect()

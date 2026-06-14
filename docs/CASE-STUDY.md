@@ -40,9 +40,9 @@ In every case, the AI system allowed a probabilistic model to directly own a det
 
 ## How Griha Handles It
 
-Griha's response to "let the dog walker in" fires through four governance layers before a single device is touched.
+Griha's response to "let the dog walker in" passes through four deterministic workflow controls before a single device is touched.
 
-### Layer 1 — Intent Extraction (Sthala)
+### Control 1 — Intent Extraction (Sthala)
 
 The LLM's job ends here. It extracts structured intent from natural language and selects from a pre-verified whitelist of action IDs. It cannot invent actions. It cannot choose between implementations.
 
@@ -53,7 +53,7 @@ Output: {action: "unlock_front_door", target: "front_door", confidence: "HIGH"}
 
 The LLM does not call any device API. It produces a typed, validated intent object — nothing more.
 
-### Layer 2 — Home State (ContextOps)
+### Control 2 — Home State (ContextOps)
 
 Griha loads home state from a local YAML — not from the LLM's opinion.
 
@@ -65,7 +65,7 @@ time_of_day: afternoon
 
 State sets risk. The LLM's confidence level is irrelevant. Nobody home + away mode = HIGH risk regardless of how politely the request was phrased.
 
-### Layer 3 — Boundary Gate (ContextBoundary)
+### Control 3 — Boundary Gate (ContextBoundary)
 
 `unlock_front_door` is classified CRITICAL — not because of its name, but because its transitive effects reach `access_control` and `physical_security`. The classification is set at build time, in code, not at runtime by the LLM.
 
@@ -83,7 +83,7 @@ RAW INPUT : "let the dog walker in"
 
 The human sees the raw input alongside the extracted intent. If the LLM misread the request, the human catches it here.
 
-### Layer 4 — Execution (Deterministic)
+### Control 4 — Adapter Execution (Deterministic)
 
 Only after an explicit YES:
 - An approval token is issued, binding action + target + state hash + nonce + expiry + approver.

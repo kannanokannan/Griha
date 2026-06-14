@@ -59,7 +59,7 @@ async def provision(node_id, role, coordinator_ip, hw):
     print(f"      Public key: {pubkey[:20]}...")
     print(f"  [3/5] Registering with coordinator ({coordinator_ip})...")
     manifest = {"node_id": node_id, "role": role, "wg_pubkey": pubkey, "capabilities": hw["capabilities"], "ram_gb": hw["ram_gb"], "model": hw["model"]}
-    print(f"      Manifest prepared (NATS registration: TODO in v0.2)")
+    print(f"      Manifest prepared (NATS registration deferred)")
     print(f"  [4/5] Installing recipe '{role}'...")
     recipe_src = Path(__file__).parent.parent / "agents" / role.replace("-", "_")
     if not recipe_src.exists():

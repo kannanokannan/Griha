@@ -2,7 +2,7 @@
 framework/context_ops.py — Home state loader (ContextOps layer mock)
 
 Loads home state from a local YAML file. State sets risk — not the LLM.
-This is the Griha implementation of the ContextOps governance layer.
+This is the Griha inheritance point for ContextOps context lifecycle concerns.
 
 Part of the Griha tracer bullet: context_ops → context_boundary → sthala → coordinator
 """

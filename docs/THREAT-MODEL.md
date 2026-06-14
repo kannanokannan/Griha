@@ -121,12 +121,12 @@ Smart plug classified non-critical. Smart plug powers the magnetic lock mechanis
 
 ---
 
-## Known Gaps (v0.2)
+## Known Gaps
 
 - `_used_nonces` is in-process memory — does not survive restarts or scale across processes. Redis/DB-backed nonce store needed for production.
 - Log-before-execute not yet implemented — execution can succeed before log write.
 - Telegram HITL channel authentication not yet implemented — CLI HITL is for demo only.
-- NATS registration in node-wizard is a stub — v0.2 item.
+- NATS registration in node-wizard is a stub.
 
 ---
 
