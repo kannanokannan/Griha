@@ -17,11 +17,15 @@ Terminology defined in GLOSSARY.md overrides any local usage in this repo.
 
 ## What Griha Is
 
-Griha is the product layer above three sibling governance projects. It inherits:
+Griha is a reference implementation: a worked example for home and edge. It applies:
 
 - ContextOps - context governance
 - ContextBoundary - egress control
-- Sthala - narrate/compute split
+- Sthala's narrate/compute constraint
+
+ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it.
+
+The composition is defined once, in COMPOSITION.md: https://github.com/kannanokannan/context-stack/blob/main/COMPOSITION.md
 
 Status: proof of concept. Apache 2.0.
 
@@ -49,7 +53,7 @@ LLMs interpret intent only. Deterministic code owns all device execution. No exc
 - Not a home automation platform
 - Not an AI assistant
 - Not production-ready - POC only
-- Not a sibling of the three governance projects - it is the product layer above them
+- Not a specification, and not a layer above anything - it is a reference implementation that applies the specifications
 
 ---
 
@@ -67,13 +71,13 @@ When files are created or modified, upload the updated file to this folder (mirr
 
 ---
 
-*Griha - Apache 2.0 - Inherits: ContextOps - ContextBoundary - Sthala*
+*Griha - Apache 2.0 - Applies: ContextOps - ContextBoundary - Sthala's narrate/compute constraint*
 
 ---
 
 ## Tracer Bullet Guidance
 
-The dog-walker tracer bullet demonstrates Griha as a product/workflow proof-of-concept. Keep the public framing stable:
+The dog-walker tracer bullet demonstrates Griha as a worked example. Keep the public framing stable:
 
 - LLMs extract structured intent only.
 - Deterministic code validates state, risk, and policy.
@@ -81,4 +85,4 @@ The dog-walker tracer bullet demonstrates Griha as a product/workflow proof-of-c
 - Adapters execute only after deterministic approval conditions pass.
 - Provenance records the request, decision, approval token, action, and outcome.
 
-Do not describe Griha as a fourth governance pillar, a peer governance framework, a stack layer that owns execution, or the source of canonical Context Stack doctrine. Griha inherits ContextOps, ContextBoundary, and Sthala principles and demonstrates them in a concrete workflow.
+Do not describe Griha as a fourth governance pillar, a peer governance framework, a layer above the stack, a stack layer that owns execution, or the source of canonical Context Stack doctrine. Griha applies ContextOps and ContextBoundary, and Sthala's narrate/compute constraint, and demonstrates them in a concrete workflow.
