@@ -2,7 +2,7 @@
 
 ## What Griha Is
 
-Griha is a policy-bounded AI execution system for home and edge environments. It is the product layer that inherits three open-source governance principles:
+Griha is a policy-bounded AI execution system for home and edge environments. It is a reference implementation: a worked example that applies ContextOps and ContextBoundary, and Sthala's narrate/compute constraint:
 
 | Principle | Source | What it gives Griha |
 |-----------|--------|-------------------|

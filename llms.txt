@@ -1,21 +1,25 @@
 # Griha
 
-> Policy-bounded AI execution system for home and edge environments. The product layer that inherits ContextOps governance, ContextBoundary egress control, and Sthala's narrate/compute constraint.
+> Policy-bounded AI execution system for home and edge environments. A reference implementation: a worked example that applies ContextOps and ContextBoundary, and Sthala's narrate/compute constraint.
 
-Griha demonstrates the family doctrine in a working system: probabilistic intelligence operates inside deterministic governance boundaries. LLMs interpret intent only — deterministic code owns all device execution.
+Griha demonstrates the Context Stack doctrine in a working system: probabilistic intelligence operates inside deterministic governance boundaries. LLMs interpret intent only — deterministic code owns all device execution.
+
+ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it.
+
+The composition is defined once, in COMPOSITION.md: https://github.com/kannanokannan/context-stack/blob/main/COMPOSITION.md
 
 License: Apache 2.0. Status: Proof of concept.
 
 ## Core
 
-- [docs/architecture.md](https://github.com/kannanokannan/Griha/blob/main/docs/architecture.md): Architecture, failure narrative, governance inheritance
+- [docs/architecture.md](https://github.com/kannanokannan/Griha/blob/main/docs/architecture.md): Architecture, failure narrative, what Griha applies
 - [core/intent.py](https://github.com/kannanokannan/Griha/blob/main/core/intent.py): LLM intent extraction — narrate layer only
 - [coordinator/main.py](https://github.com/kannanokannan/Griha/blob/main/coordinator/main.py): Deterministic validation and routing — compute layer
 - [coordinator/egress.py](https://github.com/kannanokannan/Griha/blob/main/coordinator/egress.py): Egress control — ContextBoundary integration point
 
-## Governance stack (inherited)
+## What Griha applies
 
 - [ContextOps](https://github.com/kannanokannan/ContextOps): AI context governance framework
 - [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Egress governance specification
-- [Sthala](https://github.com/kannanokannan/Sthala): Runtime placement and governed implementation under ContextBoundary
+- [Sthala](https://github.com/kannanokannan/Sthala): Source of the narrate/compute constraint
 - [context-stack](https://github.com/kannanokannan/context-stack): Canonical terminology and decisions

@@ -102,4 +102,8 @@ Python · NATS · LiteLLM · Pydantic · FastAPI · Home Assistant · WireGuard 
 
 ---
 
-> **Note:** Griha is a product/workflow proof-of-concept for Context Stack principles: ContextOps context lifecycle, ContextBoundary egress control, and Sthala's narrate/compute split. It demonstrates deterministic boundaries in a concrete home workflow; canonical stack doctrine lives in the Context Stack repos.
+## Part of the Stack
+
+ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it. The composition is defined once, in [COMPOSITION.md](https://github.com/kannanokannan/context-stack/blob/main/COMPOSITION.md).
+
+Griha is a reference implementation: a worked example that applies ContextOps and ContextBoundary, and Sthala's narrate/compute constraint. It demonstrates deterministic boundaries in a concrete home workflow; canonical stack doctrine lives in the Context Stack repos.
